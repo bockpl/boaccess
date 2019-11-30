@@ -1,8 +1,9 @@
 ---
 - import_playbook: install_monit.yml
 - import_playbook: Install_which.yml
-- import_playbook: install_MFS_client.yml
 - import_playbook: install_mail_support.yml
 - import_playbook: install_dep_module.yml
+- import_playbook: install_boaccess_submit.yml
+- import_playbook: install_boaccess_ssh.yml
 - import_playbook: install_boaccess_tools.yml
 - import_playbook: yum_clean.yml
