@@ -31,7 +31,7 @@ ansible-playbook Playbooks/install_boaccess_ssh.yml --connection=local --extra-v
 # Instalacja wymagan umozliwiajacych uruchamianie zadan w systemie kolejkowym
 ansible-playbook Playbooks/install_boaccess_submit.yml --connection=local --extra-vars "var_host=127.0.0.1" && \
 # Instalacja narzedzi do interaktywnej wpracy w konsoli dla uzytkownikow klastra
-ansible-playbook Playbooks/install_boaccess_tools.yml --connection=local --extra-vars "var_host=127.0.0.1" && \
+ansible-playbook Playbooks/install_boaccess_tools_v8.yml --connection=local --extra-vars "var_host=127.0.0.1" && \
 # Skasowanie tymczasowego srodowiska ansible
 yum -y remove ansible --remove-leaves && \
 cd /; rm -rf /boplaybooks
