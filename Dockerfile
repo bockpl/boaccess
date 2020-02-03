@@ -7,7 +7,7 @@ EXPOSE 2222/tcp
 ADD soge/sge.sh /etc/profile.d/
 ADD soge/module.sh /etc/profile.d/
 
-ADD repos/getho.repo /etc/yum.repos.d/
+ADD repos/ghetto.repo /etc/yum.repos.d/
 
 RUN \
 # Tymczasowa instalacja git-a i ansible w celu uruchomienia playbook-ow
