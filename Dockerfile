@@ -30,7 +30,7 @@ RUN yum -y remove git epel-release --remove-leaves
 # Instalacja systemu autoryzacji AD PBIS
 RUN \
 cd boplaybooks ; echo ; pwd ; echo && \
-ansible-playbook Playbooks/install_PBIS.yml --connection=local --extra-vars "var_host=127.0.0.1" && \
+#ansible-playbook Playbooks/install_PBIS.yml --connection=local --extra-vars "var_host=127.0.0.1" && \
 # Instalacja obslugi e-mail
 ansible-playbook Playbooks/install_Mail_support.yml --connection=local --extra-vars "var_host=127.0.0.1" && \
 # Instalacja systemu Monit
@@ -77,15 +77,15 @@ ADD monit/nslcd.conf /etc/monit.d/
 ADD monit/sync_hosts.conf /etc/monit.d/
 ADD monit/sshd.conf /etc/monit.d/
 ADD monit/sge_exec.conf /etc/monit.d/
-ADD monit/pbis.conf /etc/monit.d/
+#ADD monit/pbis.conf /etc/monit.d/
 #ADD monit/*.conf /etc/monit.d/
 ADD monit/stop_sshd.sh /etc/monit.d/
 ADD monit/stop_nslcd.sh /etc/monit.d/
 ADD monit/start_sshd.sh /etc/monit.d/
 ADD monit/start_nslcd.sh /etc/monit.d/
-ADD monit/stop_pbis.sh /etc/monit.d/
+#ADD monit/stop_pbis.sh /etc/monit.d/
 ADD monit/start_sync_hosts.sh /etc/monit.d/
-ADD monit/start_pbis.sh /etc/monit.d/
+#ADD monit/start_pbis.sh /etc/monit.d/
 #ADD monit/*.sh /etc/monit.d/
 #RUN mkdir /var/run/nslcd
 RUN chown nslcd -fR /var/run/nslcd
