@@ -25,7 +25,7 @@ RUN yum -y install git
 RUN cd /; git clone https://github.com/bockpl/boplaybooks.git
 #; cd /boplaybooks && \
 # Skasowanie tymczasowego srodowiska git, UWAGA: Brak tego wpisu w tej kolejnosci pozbawi srodowiska oprogramowania narzedziowego less, man itp.:
-RUN yum -y remove git epel-release --remove-leaves 
+#RUN yum -y remove git epel-release --remove-leaves 
 #&& \
 # Instalacja systemu autoryzacji AD PBIS
 RUN \
@@ -43,6 +43,8 @@ ansible-playbook Playbooks/install_boaccess_ssh.yml --connection=local --extra-v
 ansible-playbook Playbooks/install_boaccess_submit.yml --connection=local --extra-vars "var_host=127.0.0.1" && \
 # Instalacja narzedzi do interaktywnej wpracy w konsoli dla uzytkownikow klastra
 ansible-playbook Playbooks/install_boaccess_tools.yml --connection=local --extra-vars "var_host=127.0.0.1" && \
+# Instalacja glibc-devel dla gcc
+ansible-playbook Playbooks/install_glibc-dev.yml --connection=local --extra-vars "var_host=127.0.0.1" && \
 # Skasowanie katalogu z playbookami
 rm -rf /boplaybooks && \
 # Skasowanie tymczasowego srodowiska ansible
