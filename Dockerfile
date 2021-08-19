@@ -61,6 +61,12 @@ RUN  yum install -y \
      yum clean all && \
      rm -rf /var/cache/yum
 
+# dodanie libX11 dla srodowiska module
+RUN  yum install -y \
+        libX11.x86_64 && \
+     yum clean all && \
+     rm -rf /var/cache/yum
+
 RUN  authconfig --update --enableldap --enableldapauth
 RUN  authconfig --updateall --enableldap --enableldapauth
 
