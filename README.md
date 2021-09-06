@@ -1,5 +1,7 @@
-# boaccess
-Kontener dostępowy klastra Bluecoean
+# BoCompute
 
-Przyklad wywolania:
-docker run -dt --rm --name ${BOACCESS} --cpus ${RDZENIE_BOACCESS} --memory ${PAMIEC_BOACCESS_G} --memory-swap ${PAMIEC_BOACCESS_G} -h ${BO_HOSTNAME} -v ${MFS_OPT}:${BO_OPT} -v ${MFS_HOME}:${BO_HOME} -p 2222:22 --net cluster_network --ip ${BO_IP} -e DEBUG=true ${BO_REPO}
+Podstawowy kontener obliczeniowy (wykonawczy) klastra BlueOcean.
+
+Zmienna srodowiskowa DEBUG=true wlacza opcje debuggowania w niektorych uruchamianych procesach min w monit.
+
+docker run -dt --rm --name bocompute -h ${HOSTNAME} --cpus ${CPUS} --memory ${MEMORY} --memory-swap ${MEMORY-SWAP} --shm-size=${SHM-SIZE} -v /etc/aliases:/etc/aliases -v /etc/msmtprc:/etc/msmtprc -p 6445:6445 --net cluster_network --ip $(echo 10.0.0.$(hostname -i | cut -d "." -f4)) -e DEBUG=true bockpl/bocompute:bocompute
