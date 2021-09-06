@@ -7,9 +7,9 @@ LABEL maintainer="pawel.adamczyk.1@p.lodz.pl"
 # SGE
 #ADD soge/sgeexecd.blueocean-v15 /etc/init.d/
 #ADD soge/sge.sh /etc/profile.d/
-ADD soge/module.sh /etc/profile.d/
+#ADD soge/module.sh /etc/profile.d/
 #
-ADD soge/jemalloc-3.6.0-1.el7.x86_64.rpm /tmp/jemalloc-3.6.0-1.el7.x86_64.rpm
+#ADD soge/jemalloc-3.6.0-1.el7.x86_64.rpm /tmp/jemalloc-3.6.0-1.el7.x86_64.rpm
 #
 ADD repos/ghetto.repo /etc/yum.repos.d/
 
@@ -154,7 +154,7 @@ RUN yum -y remove git epel-release --remove-leaves
 # Instalacja systemu autoryzacji AD PBIS
 RUN \
 cd boplaybooks ; echo ; pwd ; echo && \
-ansible-playbook Playbooks/install_PBIS.yml --connection=local --extra-vars "var_host=127.0.0.1" && \
+#ansible-playbook Playbooks/install_PBIS.yml --connection=local --extra-vars "var_host=127.0.0.1" && \
 # Instalacja wymagan dla systemu kolejkowego SOGE    
 #ansible-playbook Playbooks/install_dep_SOGE.yml --connection=local --extra-vars "var_host=127.0.0.1" && \
 # Instalacja obslugi e-mail
@@ -215,7 +215,7 @@ ADD monit/nslcd.conf /etc/monit.d/
 ADD monit/sync_hosts.conf /etc/monit.d/
 ADD monit/sshd.conf /etc/monit.d/
 #ADD monit/sge_exec.conf /etc/monit.d/
-ADD monit/pbis.conf /etc/monit.d/
+#ADD monit/pbis.conf /etc/monit.d/
 ADD monit/munge.conf /etc/monit.d/
 #ADD monit/slurmd.conf /etc/monit.d/
 #ADD monit/slurmctld.conf /etc/monit.d/
@@ -225,9 +225,9 @@ ADD monit/stop_sshd.sh /etc/monit.d/
 ADD monit/stop_nslcd.sh /etc/monit.d/
 ADD monit/start_sshd.sh /etc/monit.d/
 ADD monit/start_nslcd.sh /etc/monit.d/
-ADD monit/stop_pbis.sh /etc/monit.d/
+#ADD monit/stop_pbis.sh /etc/monit.d/
 ADD monit/start_sync_hosts.sh /etc/monit.d/
-ADD monit/start_pbis.sh /etc/monit.d/ 
+#ADD monit/start_pbis.sh /etc/monit.d/ 
 ADD monit/start_munged.sh /etc/monit.d/
 ADD monit/stop_munged.sh /etc/monit.d/
 #ADD monit/start_slurmd.sh /etc/monit.d/
