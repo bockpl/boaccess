@@ -213,6 +213,14 @@ RUN  yum install -y \
      yum clean all && \
      rm -rf /var/cache/yum
 
+# dodanie dockera, singularity i git
+RUN  yum install -y \
+        docker \
+        singularity \
+        git && \
+     yum clean all && \
+     rm -rf /var/cache/yum
+
 RUN  authconfig --update --enableldap --enableldapauth
 RUN  authconfig --updateall --enableldap --enableldapauth
 
